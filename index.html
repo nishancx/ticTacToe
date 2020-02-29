@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&amp;display=swap" rel="stylesheet">
+  <title>TicTacToe</title>
+</head>
+<body>
+  <div id="mainContainer">
+    <div id="leftContainer">
+      <div id="leftContainerInner" class="containerInner userActive">O</div>
+    </div>
+    <div id="centreContainer">
+      <div id="tile1" class="tiles row1 column1" onclick="set(this)"><div></div></div>
+      <div id="tile2" class="tiles row1 column2" onclick="set(this)"><div></div></div>
+      <div id="tile3" class="tiles row1 column3" onclick="set(this)"><div></div></div>
+      <div id="tile4" class="tiles row2 column1" onclick="set(this)"><div></div></div>
+      <div id="tile5" class="tiles row2 column2" onclick="set(this)"><div></div></div>
+      <div id="tile6" class="tiles row2 column3" onclick="set(this)"><div></div></div>
+      <div id="tile7" class="tiles row3 column1" onclick="set(this)"><div></div></div>
+      <div id="tile8" class="tiles row3 column2" onclick="set(this)"><div></div></div>
+      <div id="tile9" class="tiles row3 column3" onclick="set(this)"><div></div></div>
+      <!-- 
+      <table>
+        <tr id="tr1" class="tr">
+          <td id="td1"></td>
+          <td id="td2"></td>
+          <td id="td3"></td>
+        </tr>
+        <tr id="tr2" class="tr">
+          <td id="td4"></td>
+          <td id="td5"></td>
+          <td id="td6"></td>
+        </tr>
+        <tr id="tr3" class="tr">
+          <td id="td7"></td>
+          <td id="td8"></td>
+          <td id="td9"></td>
+        </tr>
+      </table>
+       -->
+    </div>
+    <div id="rightContainer">
+      
+      <div id="rightContainerInner" class="containerInner">X</div>
+      
+    </div>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>
