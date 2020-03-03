@@ -1,3 +1,4 @@
+console.log(document.querySelector("#userNameHolder"));
 let user = ['O', 'X'];
 let tiles = new Array(9).fill(200);
 let tileID;
@@ -67,61 +68,66 @@ function set(elem, index) {
     default:
       console.log("Invalid index was passed.");
   }
+  if (counter == 9) {
+    draw();
+  }
   temp = user[0];
   user[0] = user[1];
   user[1] = temp;
   counter++;
-  if (counter == 9) {
-    draw();
-  }
+  console.log('');
+  console.log(tiles[0] + ' ' + tiles[1] + ' ' + tiles[2] );
+  console.log(tiles[3] + ' ' + tiles[4] + ' ' + tiles[5] );
+  console.log(tiles[6] + ' ' + tiles[7] + ' ' + tiles[8] );
+
 
 }
 
 function checkC1(user) {
   if ([0, 3].includes((tiles[0] + tiles[3] + tiles[6]))) {
-    won(user, 'c1');
+    won(user);
   }
 }
 
 function checkC2(user) {
   if ([0, 3].includes((tiles[1] + tiles[4] + tiles[7]))) {
-    won(user, 'c2');
+    won(user);
   }
 }
 
 function checkC3(user) {
   if ([0, 3].includes((tiles[2] + tiles[5] + tiles[8]))) {
-    won(user, 'c3');
+    won(user);
   }
 }
 
 function checkR1(user) {
   if ([0, 3].includes((tiles[0] + tiles[1] + tiles[2]))) {
-    won(user, 'r1');
+    won(user);
   }
 }
 
 function checkR2(user) {
   if ([0, 3].includes((tiles[3] + tiles[4] + tiles[5]))) {
-    won(user, 'r2');
+    won(user);
   }
 }
 
 function checkR3(user) {
   if ([0, 3].includes((tiles[6] + tiles[7] + tiles[8]))) {
-    won(user, 'r3');
+    won(user);
   }
 }
 
 function checkX1(user) {
   if ([0, 3].includes((tiles[0] + tiles[4] + tiles[8]))) {
-    won(user, 'x1');
+    won(user);
   }
 }
 
 function checkX2(user) {
   if ([0, 3].includes((tiles[2] + tiles[4] + tiles[6]))) {
-    won(user, 'x2');
+    won(user);
   }
 }
 
