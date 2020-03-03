@@ -149,5 +149,7 @@ function restartGame() {
   for (i = 0; i < tileDivs.length; i++) {
     tileDivs[i].innerHTML = '<div></div>';
   }
+  leftContainerInner.classList.add("userActive");
+  rightContainerInner.classList.remove("userActive");
   togglePopup();
 }
