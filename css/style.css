@@ -106,7 +106,6 @@ body {
   top: 0;
   height: 100%;
   width: 100%;
-  /* background: #2f2f2f; */
 }
 
 #wonPopup.popupActive {
@@ -118,17 +117,11 @@ body {
   width: 100%;
   background: #2f2f2f;
   z-index: 3;
-  /* opacity: 0.2; */
   opacity: 0.2;
-
 }
 
 #wonPopupInner {
-  /* position: relative; */
   text-align: center;
-  /* vertical-align: middle; */
-  /* padding: 100%; */
-  /* box-sizing: border-box; */
   transition: 0.2s;
   height: 50%;
   width: 50%;
@@ -140,10 +133,8 @@ body {
   color: var(--darkColor);
   padding: 10%;
   box-sizing: border-box;
-
   top: 25%;
   left: 25%;
-
 }
 
 #userNameContainer {
@@ -155,28 +146,20 @@ body {
 }
 
 button#restartGame {
-  /* position: relative; */
-  /* top: 50%; */
   display: block;
-  /* transform: translateY(-50%); */
   background: var(--darkColor);
-
   color: #fff;
   margin: 50px auto;
   font-size: 1.5rem;
-  /* background: var(--darkColor); */
   border-radius: 5px;
   border: none;
   padding: 10px 30px;
-  /* margin: 50px; */
   transition: 0.2s;
   outline: none;
-  /* width: 10rem; */
 }
 
 button#restartGame:hover {
   background: #176fc8;
-  /* color:  ;  */
 }
 
 @media (orientation: landscape) and (max-aspect-ratio: 3/2) {
@@ -212,12 +195,16 @@ button#restartGame:hover {
 
   }
 
+  .tiles {
+    cursor: unset;
+  }
+
   .tiles:hover {
     background: var(--lighterColor);
   }
 
   .tiles:active {
-    background: #ccc;
+    background: var(--lighterColor);
   }
 
   #wonPopupInner {
@@ -227,12 +214,6 @@ button#restartGame:hover {
 
   button#restartGame:hover {
     background: var(--darkColor);
-    /* color:  ;  */
-  }
-
-  button#restartGame:active {
-    background: #176fc8;
-    /* color:  ;  */
   }
 
 }
