@@ -1,40 +1,48 @@
-:root{
+:root {
   --darkColor: #2f2f2f;
   --lighterColor: #3f3f3f;
   --tealColor: #008080;
 }
-body{
+
+body {
   margin: 0;
   color: #008080;
-  background:  var(--darkColor);
+  background: var(--darkColor);
   font-family: 'Titillium Web', sans-serif;
 }
-#mainContainer{
+
+#mainContainer {
   height: 100vh;
   overflow: hidden !important;
 }
-#mainContainer>div{
+
+#mainContainer>div {
   height: 100vh;
 }
-#leftContainer{
+
+#leftContainer {
   left: 0;
   top: 0;
   position: absolute;
   width: calc(50vw - 50vh);
 }
-#leftContainer, #rightContainer{
-  font-size: 100px;
+
+#leftContainer,
+#rightContainer {
+  font-size: 5rem;
   text-align: center;
   line-height: 100vh;
 
 }
-.containerInner{
+
+.containerInner {
   display: inline;
-  padding: 10px 40px;
+  padding: 10px 10%;
   transition: border 0.4s;
   position: relative;
 }
-.containerInner::after{
+
+.containerInner::after {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -45,13 +53,12 @@ body{
   background: var(--tealColor);
   transition: 0.2s;
 }
-.userActive{
-  transition: 0.6s;
-}
-.userActive::after{
+
+.userActive::after {
   width: 100%;
 }
-#centreContainer{
+
+#centreContainer {
   width: 100vh;
   margin: auto;
   display: grid;
@@ -60,35 +67,188 @@ body{
   padding: 10px;
   box-sizing: border-box;
 }
-.tiles{
+
+.tiles {
   background: var(--lighterColor);
   transition: all 0.2s;
   border-radius: 5px;
   user-select: none;
   display: flex;
   align-items: center;
-  justify-content: center ;
-  font-size: 25px;
+  justify-content: center;
+  font-size: 3rem;
   text-align: center;
   cursor: pointer;
 }
-.tiles:hover{
+
+.tiles:hover {
   background: #ccc;
 }
 
-.tiles div{
+.tiles div {
   text-align: center;
-  font-size: 60px;
-  height: 60px;
-  line-height: 60px;
-  width: 60px;
-  padding: 20px;
+  height: 4rem;
+  line-height: 4rem;
+  width: 4rem;
 }
-#rightContainer{
+
+#rightContainer {
   width: 20vw;
-  /* background: #ccc; */
   position: absolute;
   width: calc(50vw - 50vh);
   right: 0;
   top: 0;
+}
+
+#wonPopup {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  /* background: #2f2f2f; */
+}
+
+#wonPopup.popupActive {
+  visibility: visible;
+}
+
+#wonOverlay {
+  height: 100%;
+  width: 100%;
+  background: #2f2f2f;
+  z-index: 3;
+  /* opacity: 0.2; */
+  opacity: 0.2;
+
+}
+
+#wonPopupInner {
+  /* position: relative; */
+  text-align: center;
+  /* vertical-align: middle; */
+  /* padding: 100%; */
+  /* box-sizing: border-box; */
+  transition: 0.2s;
+  height: 50%;
+  width: 50%;
+  border-radius: 5px;
+  background: #fff;
+  opacity: 1;
+  z-index: 5;
+  position: absolute;
+  color: var(--darkColor);
+  padding: 10%;
+  box-sizing: border-box;
+
+  top: 25%;
+  left: 25%;
+
+}
+
+#userNameContainer {
+  transform: translateY(-50%);
+  position: relative;
+  top: 50%;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+button#restartGame {
+  /* position: relative; */
+  /* top: 50%; */
+  display: block;
+  /* transform: translateY(-50%); */
+  background: var(--darkColor);
+
+  color: #fff;
+  margin: 50px auto;
+  font-size: 1.5rem;
+  /* background: var(--darkColor); */
+  border-radius: 5px;
+  border: none;
+  padding: 10px 30px;
+  /* margin: 50px; */
+  transition: 0.2s;
+  outline: none;
+  /* width: 10rem; */
+}
+
+button#restartGame:hover {
+  background: #176fc8;
+  /* color:  ;  */
+}
+
+@media (orientation: landscape) and (max-aspect-ratio: 3/2) {
+  #leftContainer {
+    width: calc(50vw - 35vh);
+  }
+
+  #centreContainer {
+    transform: translateY(15vh);
+    height: 70vh !important;
+    width: 70vh;
+  }
+
+
+  #rightContainer {
+    width: calc(50vw - 35vh);
+  }
+}
+
+@media (orientation: portrait) {
+
+  #leftContainer,
+  #rightContainer {
+    width: 50%;
+    height: calc(50vh - 40vw) !important;
+    line-height: calc(50vh - 40vw) !important;
+  }
+
+  #centreContainer {
+    width: 100vw;
+    height: 100vw !important;
+    transform: translateY(calc((100vh - 80vw)/2));
+
+  }
+
+  .tiles:hover {
+    background: var(--lighterColor);
+  }
+
+  .tiles:active {
+    background: #ccc;
+  }
+
+  #wonPopupInner {
+    width: 80%;
+    left: 10%
+  }
+
+  button#restartGame:hover {
+    background: var(--darkColor);
+    /* color:  ;  */
+  }
+
+  button#restartGame:active {
+    background: #176fc8;
+    /* color:  ;  */
+  }
+
+}
+
+@media (orientation: portrait) and (min-aspect-ratio: 2/3) {
+
+  #leftContainer,
+  #rightContainer {
+    height: calc(50vh - 30vw) !important;
+    line-height: calc(50vh - 30vw) !important;
+  }
+
+  #centreContainer {
+    transform: translateY(calc((100vh - 60vw)/2));
+    width: 70vw;
+    height: 70vw !important;
+  }
+
 }
