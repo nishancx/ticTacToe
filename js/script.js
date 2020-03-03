@@ -1,10 +1,10 @@
-console.log(document.querySelector("#userNameHolder"));
 let user = ['O', 'X'];
 let tiles = new Array(9).fill(200);
 let tileID;
 let temp;
 let flag = 0;
 let counter = 0;
+let wonFlag = 0;
 let leftContainerInner = document.querySelector("#leftContainerInner");
 let rightContainerInner = document.querySelector("#rightContainerInner");
 
@@ -68,17 +68,13 @@ function set(elem, index) {
     default:
       console.log("Invalid index was passed.");
   }
-  if (counter == 9) {
-    draw();
-  }
   temp = user[0];
   user[0] = user[1];
   user[1] = temp;
   counter++;
-  console.log('');
-  console.log(tiles[0] + ' ' + tiles[1] + ' ' + tiles[2] );
-  console.log(tiles[3] + ' ' + tiles[4] + ' ' + tiles[5] );
-  console.log(tiles[6] + ' ' + tiles[7] + ' ' + tiles[8] );
+  if ((counter >= 9) && (wonFlag == 0)) {
+    draw();
+  }
 
 
 }
@@ -132,12 +128,13 @@ function checkX2(user) {
 }
 
 function won(user) {
-  document.querySelector("#userNameHolder").innerHTML = user;
   togglePopup();
+  wonFlag = 1;
+  document.querySelector("#wrapper").innerHTML = '<div id="userNameHolder">' + user + '</div> won.';
 }
 
 function draw() {
-  document.querySelector("#wrapper").innerHTML = 'Draw.';
+  document.querySelector("#wrapper").innerHTML = '<div id="userNameHolder"></div>Draw.';
   togglePopup();
 }
 
@@ -146,6 +143,7 @@ function togglePopup() {
 }
 
 function restartGame() {
+  wonFlag = 0;
   counter = 0;
   tiles.fill(200);
   user[0] = 'O';
